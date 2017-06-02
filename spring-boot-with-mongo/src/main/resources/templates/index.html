@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorator="layouts/main" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Data Simulator for PriceSquidLite</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+
+    <div class="row">
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-4">
+            <h3>General Information</h3>
+
+        </div>
+
+        <div class="col-lg-4">
+            <h3>Simulator</h3>
+            <a class="btn btn-primary" href="/generate/random" role="button">Random Prices</a>
+            <a class="btn btn-success" href="/generate/high" role="button">High Prices</a>
+            <a class="btn btn-danger"  href="/generate/low" role="button">Low Prices</a>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-4">
+            <h3>Products and stores in simulator</h3>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
