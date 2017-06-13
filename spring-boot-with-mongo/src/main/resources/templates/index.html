@@ -3,7 +3,7 @@
       layout:decorator="layouts/main" xmlns:th="http://www.w3.org/1999/xhtml"
       xmlns:layout="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Data Simulator for PriceSquidLite</title>
+    <title>Spring boot | mongodb | docker</title>
 </head>
 <body>
 
@@ -33,7 +33,13 @@
                 </table>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4" align="center">
+            <form action="#" th:action="@{/add}" th:object="${customer}" method="post">
+                <h4>Add new customer</h4>
+                <p>First name: <input type="text" th:field="*{firstName}"/></p>
+                <p>Last name: <input type="text" th:field="*{lastName}"/></p>
+                <p><input type="submit" value="Submit"/></p>
+            </form>
         </div>
     </div>
 </div>

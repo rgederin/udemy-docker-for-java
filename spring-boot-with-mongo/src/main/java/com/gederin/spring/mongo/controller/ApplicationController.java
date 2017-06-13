@@ -1,11 +1,14 @@
 package com.gederin.spring.mongo.controller;
 
+import com.gederin.spring.mongo.model.Customer;
 import com.gederin.spring.mongo.service.CustomerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import static com.gederin.spring.mongo.utils.Constants.CUSTOMERS;
@@ -35,7 +38,15 @@ public class ApplicationController {
         model.addAttribute(MONGO_PORT, mongoPort);
         model.addAttribute(MONGO_DATABASE, mongoDb);
         model.addAttribute(CUSTOMERS, customerService.fetchAllCustomers());
+        model.addAttribute("customer", new Customer());
 
         return INDEX;
+    }
+
+    @PostMapping("/add")
+    public String greetingSubmit(@ModelAttribute Customer customer, Model model) {
+        customerService.saveCustomer(customer);
+
+        return "redirect:/";
     }
 }
