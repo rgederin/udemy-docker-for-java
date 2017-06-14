@@ -4,14 +4,12 @@ package com.gederin.spring.mongo.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
 @Document
-@Getter
-@Setter
+@Data
 @ToString
 @NoArgsConstructor
 public class Customer {

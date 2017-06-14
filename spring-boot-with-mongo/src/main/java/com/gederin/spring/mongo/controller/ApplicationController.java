@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
+import static com.gederin.spring.mongo.utils.Constants.CUSTOMER;
 import static com.gederin.spring.mongo.utils.Constants.CUSTOMERS;
 import static com.gederin.spring.mongo.utils.Constants.INDEX;
 import static com.gederin.spring.mongo.utils.Constants.MONGO_DATABASE;
@@ -32,13 +33,13 @@ public class ApplicationController {
     @Value("${spring.data.mongodb.database}")
     private String mongoDb;
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String home(Model model) {
         model.addAttribute(MONGO_HOST, mongoHost);
         model.addAttribute(MONGO_PORT, mongoPort);
         model.addAttribute(MONGO_DATABASE, mongoDb);
         model.addAttribute(CUSTOMERS, customerService.fetchAllCustomers());
-        model.addAttribute("customer", new Customer());
+        model.addAttribute(CUSTOMER, new Customer());
 
         return INDEX;
     }

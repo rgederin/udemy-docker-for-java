@@ -10,4 +10,5 @@ public final class Constants {
     public static final String MONGO_DATABASE = "mongo_database";
     public static final String INDEX = "index";
     public static final String CUSTOMERS = "customers";
+    public static final String CUSTOMER = "customer";
 }
